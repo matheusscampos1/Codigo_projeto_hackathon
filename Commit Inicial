@@ -1,0 +1,565 @@
+#part1
+
+
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Sistema Trnasferência</title>		
+		
+		<link rel="stylesheet" type="text/css" href="Estilos/Estilos.css"/>
+		
+		<style>						
+			#lblTexto {
+				left: 30px;
+				top: 70px
+			}				
+			
+			#txtLogin {
+				left: 100px;
+				top: 70px;
+				width: 370px
+			}
+			
+			#txtSenha {
+				left: 100px;
+				top: 140px;
+				width: 370px
+			}
+			
+			#lblSenha {
+				left: 30px;
+				top: 140px;				
+			}
+			
+			#btnLogin {
+				right: 30px;
+				bottom: 30px
+			}
+		</style>
+		
+		<script>
+			var USUARIO = "Matheus";
+			var SENHA = "123456";
+			var SALDO = 1400;
+			
+			var BOTAO_OK = 1;
+			var BOTAO_OKCANCELAR = 2;
+			
+			function Validar() {
+				var us = document.getElementById("txtLogin").value;
+				var sn = document.getElementById("txtSenha").value;
+				
+				if ((us == USUARIO) && (sn == SENHA))
+					EfetuarLogin();
+				else
+					Mensagem("Login Inválido!", "Usuário/senha inválido(s)", BOTAO_OK);
+			}
+			
+			function EfetuarLogin() {
+				window.location = "Prot2.html";
+			}
+			
+			
+			function Mensagem(Titulo, Texto, TiposBTN) {
+			
+				var str = '<div class="Fundo" id="divFundo" style="display: none"></div><div class="Mensagem" id="dlgMsg" style="display: none"><div class="Titulo" id="dlgMsgTitulo">Mensagem</div><div class="TextoMsg" id="dlgMsgTexto">Texto</div><input type="button" id="dlgMsgBtnCancelar" onclick="ClicarMsgCancelar()" class="BotaoCancelar" value="Cancelar"></input><input type="button" id="dlgMsgBtnOK" onclick="ClicarMsgOK()" class="BotaoOK" value="OK"></input></div>';
+				document.getElementById("lblInfo").innerHTML = str;				
+			
+				document.getElementById("dlgMsgTitulo").innerHTML = Titulo;
+				document.getElementById("dlgMsgTexto").innerHTML = Titulo;
+				
+				if (TiposBTN == BOTAO_OK) {
+					document.getElementById("dlgMsgBtnOK").style.display = "";
+					document.getElementById("dlgMsgBtnCancelar").style.display = "none";
+				} else if (TiposBTN == BOTAO_OKCANCELAR) {
+					document.getElementById("dlgMsgBtnOK").style.display = "";
+					document.getElementById("dlgMsgBtnCancelar").style.display = "";
+				}
+				
+				document.getElementById("divFundo").style.display = "";
+				document.getElementById("dlgMsg").style.display = "";
+			}
+			
+			function ClicarMsgOK() {
+				document.getElementById("divFundo").style.display = "none";
+				document.getElementById("dlgMsg").style.display = "none";
+			}
+			
+			function ClicarMsgCancelar() {
+				document.getElementById("divFundo").style.display = "none";
+				document.getElementById("dlgMsg").style.display = "none";
+			}					
+		</script>
+	</head>
+	
+	<body>
+		<h1></h1>		
+		
+		<div class="Janela">
+			<div class="Titulo">Login</div>
+			<span class="TextoJanela" id="lblTexto">Login:</span>
+			<input type="text" id="txtLogin" class="CampoJanela"></input>			
+			<span class="TextoJanela" id="lblSenha">Senha:</span>
+			<input type="password" id="txtSenha" class="CampoJanela"></input>
+			<input type="button" id="btnLogin" class="Botao" onclick="Validar()" value="Entrar"></input>			
+		</div>
+		
+		<span id="lblInfo">
+		</span>		
+	</body>
+</html>
+
+#part2
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Sistema Trnasferência</title>		
+		
+		<link rel="stylesheet" type="text/css" href="Estilos/Estilos.css"/>
+		
+		<style>						
+			#lblTexto {
+				left: 30px;
+				top: 70px
+			}				
+			
+			#txtValor {
+				left: 100px;
+				top: 70px;
+				width: 370px
+			}
+			
+			#txtFone {
+				left: 100px;
+				top: 140px;
+				width: 370px
+			}
+			
+			#lblSenha {
+				left: 30px;
+				top: 140px;				
+			}
+			
+			#btnLogin {
+				right: 30px;
+				bottom: 30px
+			}
+		</style>
+		
+		<script>
+			var USUARIO = "Matheus";
+			var SENHA = "123456";
+			
+			var BOTAO_OK = 1;
+			var BOTAO_OKCANCELAR = 2;
+			
+			
+			
+			function EfetuarLogin() {
+				window.location = "Prot3.html";
+			}
+			
+			
+			function Mensagem(Titulo, Texto, TiposBTN) {
+			
+				var str = '<div class="Fundo" id="divFundo" style="display: none"></div><div class="Mensagem" id="dlgMsg" style="display: none"><div class="Titulo" id="dlgMsgTitulo">Mensagem</div><div class="TextoMsg" id="dlgMsgTexto">Texto</div><input type="button" id="dlgMsgBtnCancelar" onclick="ClicarMsgCancelar()" class="BotaoCancelar" value="Cancelar"></input><input type="button" id="dlgMsgBtnOK" onclick="ClicarMsgOK()" class="BotaoOK" value="OK"></input></div>';
+				document.getElementById("lblInfo").innerHTML = str;				
+			
+				document.getElementById("dlgMsgTitulo").innerHTML = Titulo;
+				document.getElementById("dlgMsgTexto").innerHTML = Titulo;
+				
+				if (TiposBTN == BOTAO_OK) {
+					document.getElementById("dlgMsgBtnOK").style.display = "";
+					document.getElementById("dlgMsgBtnCancelar").style.display = "none";
+				} else if (TiposBTN == BOTAO_OKCANCELAR) {
+					document.getElementById("dlgMsgBtnOK").style.display = "";
+					document.getElementById("dlgMsgBtnCancelar").style.display = "";
+				}
+				
+				document.getElementById("divFundo").style.display = "";
+				document.getElementById("dlgMsg").style.display = "";
+			}
+			
+			function ClicarMsgOK() {
+				document.getElementById("divFundo").style.display = "none";
+				document.getElementById("dlgMsg").style.display = "none";
+			}
+			
+			function ClicarMsgCancelar() {
+				document.getElementById("divFundo").style.display = "none";
+				document.getElementById("dlgMsg").style.display = "none";
+			}					
+		</script>
+	</head>
+	
+	<body>
+		<h1></h1>		
+		
+		<div class="Janela">
+			<div class="Titulo">Valor/telefone</div>
+			<span class="TextoJanela" id="lblTexto">Valor:</span>
+			<input type="text" id="txtValor" class="CampoJanela"></input>
+			<span class="TextoJanela" id="lblSenha">Fone:</span>
+			<input type="text" id="txtFone" class="CampoJanela"></input>
+			<input type="button" id="btnLogin" class="Botao" onclick="EfetuarLogin()" value="Avançar"></input>
+			
+		</div>
+		
+		<span id="lblInfo">
+		</span>		
+	</body>
+</html>
+
+#part3
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Sistema Transferência</title>	
+
+		<link rel="stylesheet" type="text/css" href="Estilos/Estilos.css"/>
+		
+		<style>
+			#divMsg {
+				padding: 20px
+			}
+			
+			#btnOK {
+				right: 30px;
+				bottom: 30px
+			}
+			
+			#btnSair {
+				right: 150px;
+				bottom: 30px
+			}
+			
+
+		</style>
+		
+		<script>
+			function Sair() {
+				window.location = "Prot2.html";
+			}
+			
+			function CC() {
+
+				window.location = "Prot4.html";
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		<div class="Janela">
+			<div class="Titulo">Confirmação de dados</div>
+			
+			<div id="divMsg"> Os dados estão corretos? <br/></div>
+			
+			<input type="button" id="btnSair" class="Botao" onclick="Sair()" value="Não"></input>			
+			<input type="button" id="btnOK" class="Botao" onclick="CC()" value="Sim"></input>			
+		</div>
+	</body>
+</html>
+
+#part4
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Sistema Transferência</title>		
+		
+		<link rel="stylesheet" type="text/css" href="Estilos/Estilos.css"/>
+		
+		<style>
+            #lblTexto {
+                left: 30px;
+                top: 70px
+            }
+
+            #txtLogin {
+                left: 100px;
+                top: 70px;
+                width: 370px
+            }
+
+            #txtSenha {
+                left: 100px;
+                top: 70px;
+                width: 370px
+            }
+
+            #lblSenha {
+                left: 30px;
+                top: 70px;
+            }
+
+            #btnLogin {
+                right: 30px;
+                bottom: 30px
+            }
+		</style>
+		
+		<script>
+			
+			var SENHA = "123456";
+
+			var BOTAO_OK = 1;
+			var BOTAO_OKCANCELAR = 2;
+
+			function Validar() {
+				
+				var sn = document.getElementById("txtSenha").value;
+
+				if (sn == SENHA)
+					EfetuarLogin();
+				else
+					Mensagem("Dados Incorretos!", "Código inválido", BOTAO_OK);
+			}
+
+			function EfetuarLogin() {
+				window.location = "Prot5.html";
+			}
+
+
+			function Mensagem(Titulo, Texto, TiposBTN) {
+
+				var str = '<div class="Fundo" id="divFundo" style="display: none"></div><div class="Mensagem" id="dlgMsg" style="display: none"><div class="Titulo" id="dlgMsgTitulo">Mensagem</div><div class="TextoMsg" id="dlgMsgTexto">Texto</div><input type="button" id="dlgMsgBtnCancelar" onclick="ClicarMsgCancelar()" class="BotaoCancelar" value="Cancelar"></input><input type="button" id="dlgMsgBtnOK" onclick="ClicarMsgOK()" class="BotaoOK" value="OK"></input></div>';
+				document.getElementById("lblInfo").innerHTML = str;
+
+				document.getElementById("dlgMsgTitulo").innerHTML = Titulo;
+				document.getElementById("dlgMsgTexto").innerHTML = Titulo;
+
+				if (TiposBTN == BOTAO_OK) {
+					document.getElementById("dlgMsgBtnOK").style.display = "";
+					document.getElementById("dlgMsgBtnCancelar").style.display = "none";
+				} else if (TiposBTN == BOTAO_OKCANCELAR) {
+					document.getElementById("dlgMsgBtnOK").style.display = "";
+					document.getElementById("dlgMsgBtnCancelar").style.display = "";
+				}
+
+				document.getElementById("divFundo").style.display = "";
+				document.getElementById("dlgMsg").style.display = "";
+			}
+
+			function ClicarMsgOK() {
+				document.getElementById("divFundo").style.display = "none";
+				document.getElementById("dlgMsg").style.display = "none";
+			}
+
+			function ClicarMsgCancelar() {
+				document.getElementById("divFundo").style.display = "none";
+				document.getElementById("dlgMsg").style.display = "none";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h1></h1>		
+		
+		<div class="Janela">
+			<div class="Titulo">Confirmação de Código</div>
+
+			
+			<span class="TextoJanela" id="lblSenha">Código:</span>
+			<input type="password" id="txtSenha" class="CampoJanela"></input>
+
+			<input type="button" id="btnLogin" class="Botao" onclick="Validar()" value="Entrar"></input>
+		</div>
+		
+		<span id="lblInfo">
+		</span>		
+	</body>
+</html>
+
+#part5
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Ssistema Transferência</title>	
+
+		<link rel="stylesheet" type="text/css" href="Estilos/Estilos.css"/>
+		
+		<style>
+			#divMsg {
+				padding: 20px
+			}
+			
+			#btnOK {
+				right: 30px;
+				bottom: 30px
+			}
+			
+			#btnSair {
+				right: 150px;
+				bottom: 30px
+			}
+
+            #txtResultado {
+                left: 100px;
+                top: 120px;
+                width: 370px
+            }
+			
+
+		</style>
+		
+		<script>
+			function calculo() {
+				var VALOR = parseFloat(document.getElementById('txtValor').value);
+
+				var resultado = parseFloat('txtValor') - SALDO;
+
+				document.getElementById('txtResultado').setAttribute("value", resultado);
+			}
+
+			function Sair() {
+				window.location = close("Prot5.html");
+			}
+
+			
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		<div class="Janela">
+			<div class="Titulo">Sucesso</div>
+
+			<div id="divMsg">Transação realizada com sucesso!<br /></div>
+			<input type="number" id="txtResultado" class="CampoJanela" value="" readonly></input>
+			<input type="button" id="btnSair" class="Botao" onclick="javascript:calculo();" value="Sair"></input>
+
+
+		</div>
+	</body>
+</html>
+
+#css
+body {
+	background-color: #000000;
+	font-family: 'Courier New';
+	font-size: 14pt;
+	color: #000000;
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-image: url('../Imgs/Nokia.png');
+	background-position-x: 340px;
+	background-position-y: -260px;
+	background-size: 700px;
+	
+	
+
+}
+h1 {
+	font-size: 16pt;
+	text-align: center;
+	color: #fff;
+	text-shadow: 5px 5px black;
+	font-family: 'Courier New';
+	color: #FFFFFF;
+}
+
+.Janela, .Mensagem {
+	width: 500px;
+	height: 330px;
+	background-color: #c3f2b7 ;
+	border: 5px ridge #092611;
+	
+	left: 50%;
+	top: 50%;
+	margin-left: -250px;
+	margin-top: -150px;
+	position: absolute
+}
+
+.Janela2, .Mensagem {
+	width: 500px;
+	height: 210px;
+	background-color: #c3f2b7;
+	border: 5px ridge #092611;
+	left: 50%;
+	top: 50%;
+	margin-left: -250px;
+	margin-top: -150px;
+	position: absolute
+}
+
+.Titulo {
+	text-align: center;
+	background-color: #c3f2b7;
+	font-weight: bold;
+	height: 28px;
+	padding-top: 5px;
+	vertical-align: middle
+}
+
+.TextoJanela {
+	position: absolute;
+}
+
+.CampoJanela {
+	position: absolute;
+	border-radius: 10px;
+	height: 28px;
+	padding-left: 10px;
+	font-family: 'Courier New';
+	font-size: 14pt;
+	background-color: #c3f2b7;
+	color: #000000
+}
+
+
+
+.Botao, .BotaoCancelar, .BotaoOK {
+	position: absolute;
+	
+	
+	width: 100px;
+	height: 35px;
+	background-color: 	#FFFFFF;
+	color: #000000;
+	cursor: hand
+}
+
+
+
+
+}
+
+.Fundo {
+	background-color: #fff;
+	position: absolute;
+	left: 0px;
+	top: 0px;	
+	width: 100%;
+	height: 100%;
+	opacity: 0.75
+}
+
+.Mensagem {
+	width: 400px;
+	height: 230px;
+	background-color: #c3f2b7;
+	border: 5px ridge #092611;
+	border-radius: 10px;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -115px;
+	position: absolute
+}
+
+.BotaoCancelar {
+	right: 150px;
+	bottom: 30px
+}
+
+.BotaoOK {
+	right: 30px;
+	bottom: 30px
+}
+
+.TextoMsg {
+	padding: 20px
+}
+
