@@ -1,6 +1,4 @@
 #part1
-
-
 <html>
 	<head>
 		<meta charset="UTF-8"/>
@@ -109,6 +107,8 @@
 	</body>
 </html>
 
+
+
 #part2
 <html>
 	<head>
@@ -210,6 +210,8 @@
 	</body>
 </html>
 
+
+
 #part3
 <html>
 	<head>
@@ -260,6 +262,8 @@
 		</div>
 	</body>
 </html>
+
+
 
 #part4
 <html>
@@ -370,6 +374,9 @@
 	</body>
 </html>
 
+
+
+
 #part5
 <html>
 	<head>
@@ -406,13 +413,13 @@
 			function calculo() {
 				var VALOR = parseFloat(document.getElementById('txtValor').value);
 
-				var resultado = parseFloat('txtValor') - SALDO;
+				var resultado = VALOR - SALDO;
 
 				document.getElementById('txtResultado').setAttribute("value", resultado);
 			}
 
 			function Sair() {
-				window.location = close("Prot5.html");
+				window.location = close();
 			}
 
 			
@@ -426,8 +433,8 @@
 			<div class="Titulo">Sucesso</div>
 
 			<div id="divMsg">Transação realizada com sucesso!<br /></div>
-			<input type="number" id="txtResultado" class="CampoJanela" value="" readonly></input>
-			<input type="button" id="btnSair" class="Botao" onclick="javascript:calculo();" value="Sair"></input>
+			
+			<input type="button" id="btnSair" class="Botao" onclick="javascript:Sair();" value="Sair"></input>
 
 
 		</div>
